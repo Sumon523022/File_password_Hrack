@@ -53,6 +53,28 @@ sudo apt install unrar
 pkg install unrar
 ```
 
+# 🌐 GitHub Repository
+
+Repository:
+
+https://github.com/Sumon523022/File_password_Hrack
+
+Clone:
+
+```bash
+git clone https://github.com/Sumon523022/File_password_Hrack.git
+```
+
+---
+
+# ❤️ Author
+
+**Created by Sumon523022**
+
+GitHub:
+https://github.com/Sumon523022
+
+---
 ---
 
 # 📁 Project Structure
