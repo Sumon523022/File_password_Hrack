@@ -82,7 +82,7 @@ https://github.com/Sumon523022
 ```
 project/
 │
-├── file_hrack.py
+├── File_Hrack.py
 ├── README.md
 ├── passwords.txt
 ├── archive.rar
@@ -115,7 +115,7 @@ python file_hrack.py -z ARCHIVE -w WORDLIST -o OUTPUT_FOLDER
 ## Example 1 (RAR)
 
 ```bash
-python file_hrack.py \
+python File_Hrack.py \
 -z secret.rar \
 -w passwords.txt \
 -o output
@@ -126,7 +126,7 @@ python file_hrack.py \
 ## Example 2 (ZIP)
 
 ```bash
-python file_hrack.py \
+python File_Hrack.py \
 -z secret.zip \
 -w passwords.txt \
 -o output
@@ -137,7 +137,7 @@ python file_hrack.py \
 ## Example 3 (Using 8 Threads)
 
 ```bash
-python file_hrack.py \
+python File_Hrack.py \
 -z archive.rar \
 -w passwords.txt \
 -o output \
