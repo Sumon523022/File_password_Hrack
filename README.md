@@ -94,7 +94,7 @@ project/
 # 🚀 Usage
 
 ```
-python file_hrack.py -z ARCHIVE -w WORDLIST -o OUTPUT_FOLDER
+python File_Hrack.py -z ARCHIVE -w WORDLIST -o OUTPUT_FOLDER
 ```
 
 ---
