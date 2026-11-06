@@ -1,154 +1,148 @@
-# 🔓 File Hrack
+🔓 File Hrack
 
-A fast and colorful password testing tool for **RAR** and **ZIP** archives using a wordlist.
+A fast and colorful archive password testing tool for RAR, ZIP, and 7Z archives using a wordlist.
 
-Created by **Sumon523022**
+Created by Sumon523022
 
 ---
 
-## 📌 Features
+📌 Features
 
-- ✅ Supports **RAR (.rar)** archives
-- ✅ Supports **ZIP (.zip)** archives
+- ✅ Supports RAR (".rar") archives
+- ✅ Supports ZIP (".zip") archives
+- ✅ Supports 7Z (".7z") archives
 - ✅ Multi-threaded password testing
 - ✅ Beautiful colorful terminal interface
 - ✅ Progress bar with real-time status
 - ✅ Automatically detects archive format
 - ✅ Shows total attempts and execution time
-- ✅ Safe password testing
+- ✅ Password verification using test mode
+- ✅ Optional 7Z extraction after finding the password
+- ✅ Configurable thread count
 - ✅ Works on Linux and Termux
 
 ---
 
-# 📂 Supported Formats
+📂 Supported Formats
 
-| Format | Supported |
-|---------|-----------|
-| RAR (.rar) | ✅ Yes |
-| ZIP (.zip) | ✅ Yes |
+Format| Extension| Supported
+RAR| ".rar"| ✅ Yes
+ZIP| ".zip"| ✅ Yes
+7Z| ".7z"| ✅ Yes
 
 ---
 
-# 📦 Requirements
+📦 Requirements
 
 Python 3.8 or newer
 
-Required packages:
+Required Python packages
 
-```bash
 pip install rarfile pyzipper tqdm
-```
 
-For RAR archives, install **unrar**.
+Install Archive Utilities
 
-### Debian / Ubuntu
+Debian / Ubuntu / Kali Linux
 
-```bash
-sudo apt install unrar
-```
+sudo apt update
+sudo apt install unrar p7zip-full -y
 
-### Termux
+Termux
 
-```bash
-pkg install unrar
-```
-
-# 🌐 GitHub Repository
-
-Repository:
-
-https://github.com/Sumon523022/File_password_Hrack
-
-Clone:
-
-```bash
-git clone https://github.com/Sumon523022/File_password_Hrack.git
-```
+pkg update && pkg upgrade -y
+pkg install python unrar p7zip -y
+pip install rarfile pyzipper tqdm
 
 ---
 
-# ❤️ Author
+📁 Project Structure
 
-**Created by Sumon523022**
-
-GitHub:
-https://github.com/Sumon523022
-
----
----
-
-# 📁 Project Structure
-
-```
 project/
 │
 ├── File_Hrack.py
 ├── README.md
 ├── passwords.txt
+│
 ├── archive.rar
-└── archive.zip
-```
+├── archive.zip
+└── archive.7z
 
 ---
 
-# 🚀 Usage
+🚀 Usage
 
-```
-python File_Hrack.py -z ARCHIVE -w WORDLIST -o OUTPUT_FOLDER
-```
+Basic Command
 
----
+python File_Hrack.py -z archive.7z -p passwords.txt -o output
 
-# ⚙ Arguments
+Termux Example
 
-| Argument | Description |
-|----------|-------------|
-| -z | Archive file (.rar or .zip) |
-| -w | Password wordlist |
-| -o | Output directory |
-| -t | Number of threads (Default: 4) |
+python File_Hrack.py \
+-z /storage/emulated/0/BOT_Files/File_password_Hrack/1111.zip \
+-p /storage/emulated/0/BOT_Files/File_password_Hrack/10k_password_list.1.txt \
+-o /storage/emulated/0/BOT_Files/File_password_Hrack/
 
 ---
 
-# 📖 Examples
+⚙️ Arguments
 
-## Example 1 (RAR)
+Argument| Description| Default
+"-z"| Archive file path| Required
+"-p"| Password wordlist path| Required
+"-o"| Output directory| Required
+"-t"| Number of threads| 4
 
-```bash
+---
+
+📖 Examples
+
+Example 1: RAR
+
 python File_Hrack.py \
 -z secret.rar \
--w passwords.txt \
+-p passwords.txt \
 -o output
-```
 
----
+Example 2: ZIP
 
-## Example 2 (ZIP)
-
-```bash
 python File_Hrack.py \
 -z secret.zip \
--w passwords.txt \
+-p passwords.txt \
 -o output
-```
 
----
+Example 3: 7Z
 
-## Example 3 (Using 8 Threads)
-
-```bash
 python File_Hrack.py \
--z archive.rar \
--w passwords.txt \
+-z secret.7z \
+-p passwords.txt \
+-o output
+
+Example 4: Using 8 Threads
+
+python File_Hrack.py \
+-z archive.7z \
+-p passwords.txt \
 -o output \
 -t 8
-```
 
 ---
 
-# 📋 Example Wordlist
+🔐 7Z Extraction
 
-```
+When the correct password is found for a 7Z archive, the program asks:
+
+? Extract now to output dir? [y/N]:
+
+Enter "y" to extract the archive into the specified output directory.
+
+Enter "n" to skip extraction.
+
+Note: Automatic extraction is currently offered only for 7Z archives.
+
+---
+
+📋 Example Wordlist
+
 123456
 password
 admin
@@ -156,74 +150,75 @@ hello123
 qwerty
 sumon
 bangladesh
-```
 
 ---
 
-# 📺 Example Output
+📺 Example Output
 
-```
-Created by Sumon523022
+<<< Created by Sumon523022 >>>
 
-Target : secret.rar
-Format : .rar
+Target: secret.7z
+Format: .7z
 
-Total Passwords : 50000
-Threads : 8
+Total passwords: 50000
+Threads: 8
+
+Testing passwords in test mode...
 
 Cracking...
-█████████████████████████
 
-Password found:
-hello123
+Password found: hello123
 
-Time:
-00:00:07
+Time: 00:00:07
+Attempts: 2486
 
-Attempts:
-2486
-```
+? Extract now to output dir? [y/N]:
 
 ---
 
-# 🛠 How It Works
+🛠️ How It Works
 
-1. Detects the archive format.
-2. Loads every password from the wordlist.
+1. Detects the archive format automatically.
+2. Loads passwords from the provided wordlist.
 3. Tests passwords using multiple threads.
-4. Stops immediately when the correct password is found.
-5. Displays execution time and total attempts.
+4. Stops after finding a matching password.
+5. Displays the password, execution time, and attempts.
+6. Offers extraction for 7Z archives.
 
 ---
 
-# ⚠ Notes
+⚠️ Notes
 
-- Passwords are tested only.
-- Archives are **not extracted automatically**.
-- ZIP support requires **pyzipper**.
-- RAR support requires **unrar**.
+- Passwords are tested using a wordlist.
 - Empty lines inside the wordlist are ignored.
+- ZIP support requires "pyzipper".
+- RAR support requires "unrar" and optionally "rarfile".
+- 7Z support requires the "7z" command ("p7zip").
+- ZIP testing currently extracts archive contents into the output directory to verify the password.
+- RAR and 7Z use archive test operations.
+- Extraction is not automatic for RAR and ZIP archives.
+- Thread count can be customized using "-t".
 
 ---
 
-# 💻 Tested On
+💻 Tested Platforms
 
-- Termux
+- Termux (Android)
 - Ubuntu
 - Debian
 - Kali Linux
 
 ---
 
-# ❤️ Author
+❤️ Author
 
-**Created by Sumon523022**
+Created by Sumon523022
 
 ---
 
-# 📜 License
+📜 License
 
-This project is provided for **educational and personal use only**.
+This project is provided for educational and personal use only.
 
 Use it only on archives that you own or have explicit permission to test.
 
